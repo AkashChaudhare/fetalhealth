@@ -1,0 +1,47 @@
+{% extends "core/index.html" %}
+{% block content %}
+
+<div class="container">
+    <h1>
+        Diagnosis page
+    </h1>
+</div>
+<br>
+
+<div class="container" style="height: 500px;">
+    <form role="search" action="{% url 'diagnose' %}" method="get">
+        baseline_value : <input  style="width: 60px;" name="baseline_value" step="any" required> 
+        accelerations : <input  style="width: 60px;" name="accelerations" step="any" required> 
+        fetal_movement : <input  style="width: 60px;" name="fetal_movement" step="any" required> 
+        uterine_contractions : <input  style="width: 60px;" name="uterine_contractions" step="any" required> 
+        light_decelerations : <input  style="width: 60px;" name="light_decelerations" step="any" required> <br><br>
+        severe_decelerations : <input  style="width: 60px;" name="severe_decelerations" step="any" required> 
+        prolongued_decelerations : <input  style="width: 60px;" name="prolongued_decelerations" step="any" required> 
+        abnormal_short_term_variability : <input  style="width: 60px;" name="abnormal_short_term_variability" step="any" required> <br><br>
+        mean_value_of_short_term_variability : <input  style="width: 60px;" name="mean_value_of_short_term_variability" step="any" required> 
+        percentage_of_time_with_abnormal_long_term_variability : <input  style="width: 60px;" name="percentage_of_time_with_abnormal_long_term_variability" step="any" required> <br><br>
+        mean_value_of_long_term_variability : <input  style="width: 60px;" name="mean_value_of_long_term_variability" step="any" required> 
+        histogram_width : <input  style="width: 60px;" name="histogram_width" step="any" required> 
+        histogram_min : <input  style="width: 60px;" name="histogram_min" step="any" required> 
+        histogram_max : <input  style="width: 60px;" name="histogram_max" step="any" required> <br><br>
+        histogram_number_of_peaks : <input  style="width: 60px;" name="histogram_number_of_peaks" step="any" required> 
+        histogram_number_of_zeroes : <input  style="width: 60px;" name="histogram_number_of_zeroes" step="any" required> 
+        histogram_mode : <input  style="width: 60px;" name="histogram_mode" step="any" required>
+        histogram_mean : <input  style="width: 60px;" name="histogram_mean" step="any" required> <br><br>
+        histogram_median : <input  style="width: 60px;" name="histogram_median" step="any" required> 
+        histogram_variance : <input  style="width: 60px;" name="histogram_variance" step="any" required> 
+        histogram_tendency : <input  style="width: 60px;" name="histogram_tendency" step="any" required> <br><br>
+
+        <button  class="form-control alert-success" style="width: 100px;float: right;" type="submit">Submit</button>
+    </form>
+
+</div>
+
+<div class="container">
+    {% if prediction %}
+    <h3>The fetal health can be summarized as {{ prediction }}</h3>
+    {% endif %}
+</div>
+<br><br><br>
+
+{% endblock content %}
